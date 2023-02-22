@@ -1,13 +1,13 @@
 const express = require("express");
 const mysql = require("mysql2");
 const myconn = require("express-myconnection");
-const cors = require("cors");
+const cors = require('cors');
 
 const routes = require("./routes");
 
 const app = express();
 //set el puerto de escucha
-app.use(cors({ origin: "*" }));
+app.use(cors());
 
 app.set("port", process.env.PORT || 9000);
 
@@ -25,7 +25,7 @@ app.use(express.json());
 
 //agregamos la ruta principal de nuestra api
 //router-----------------------------
-app.get("/", (req, res) => {
+app.get("/", cors() ,(req, res) => {
   res.send("welcome to my api");
 });
 
