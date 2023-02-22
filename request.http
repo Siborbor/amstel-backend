@@ -1,0 +1,16 @@
+###
+GET http://localhost:9000/api HTTP/1.1
+
+###
+POST http://localhost:9000/api HTTP/1.1
+Content-Type: application/json
+Access-Control-Allow-Origin: *
+
+{
+    "nombre":"steven borbor",
+    "cedula":"0931152391",
+    "telefono":"0969983240",
+    "email":"steven.borbor@gmail.com",
+    "ciudad":"guayaquil",
+    "codigo":"OSKD4K"
+}
