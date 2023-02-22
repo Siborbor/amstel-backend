@@ -7,7 +7,6 @@ routes.get("/", (req, res) => {
 
     conn.query("SELECT * FROM USER", (err, rows) => {
       if (err) return res.send(err);
-
       res.json(rows);
     });
   });
@@ -27,7 +26,7 @@ routes.post("/", (req, res) => {
         if (respuesta === 0) {
           //VALIDAMOS SI EL CODIGO SE ENCUENTRA EN EL SISTEMA
           conn.query(
-            "SELECT codigoservidor from codigos WHERE codigoservidor = ?",
+            "SELECT codigoservidor from codigo WHERE codigoservidor = ?",
             [req.body.codigo],
             (err, rows) => {
               let lengthcodigos = rows.length;
@@ -35,7 +34,7 @@ routes.post("/", (req, res) => {
               if (lengthcodigos > 0) {
                 console.log("codigo match correcto");
                 conn.query(
-                  "INSERT INTO user set ?",
+                  "INSERT INTO USER set ?",
                   [req.body],
                   (err, rows) => {
                     if (err) return res.send(err);
