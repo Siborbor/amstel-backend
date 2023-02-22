@@ -2,6 +2,16 @@ const express = require("express");
 const routes = express.Router();
 
 routes.get("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
 
@@ -14,6 +24,16 @@ routes.get("/", (req, res) => {
 });
 
 routes.post("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, OPTIONS, PUT, PATCH, DELETE"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "X-Requested-With,content-type"
+  );
+  res.setHeader("Access-Control-Allow-Credentials", true);
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
     //VALIDAMOS SI EL CODIGO ESTA REPETIDO
@@ -40,25 +60,24 @@ routes.post("/", (req, res) => {
                   (err, rows) => {
                     if (err) return res.send(err);
                     res.send({
-                      codigo:200,
-                      mensaje:"codigo agregado exitosamente"
+                      codigo: 200,
+                      mensaje: "codigo agregado exitosamente",
                     });
                   }
                 );
               } else {
                 res.send({
-                  codigo:100,
-                  mensaje:"codigo no existe en el sistema"
+                  codigo: 100,
+                  mensaje: "codigo no existe en el sistema",
                 });
               }
             }
           );
         } else {
-          res.send(
-            {
-              codigo:400,
-              mensaje:"codigo ingresado repetido"
-            });
+          res.send({
+            codigo: 400,
+            mensaje: "codigo ingresado repetido",
+          });
         }
       }
     );
