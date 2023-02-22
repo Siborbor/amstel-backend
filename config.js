@@ -3,7 +3,7 @@ const config = {
     cors: {
       server: [
         {
-          origin: "*", //servidor que deseas que consuma o (*) en caso que sea acceso libre
+          origin: true,
           credentials: true,
         },
       ],
