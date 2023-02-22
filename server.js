@@ -1,21 +1,21 @@
 const express = require('express');
 const mysql = require('mysql2');
 const myconn = require('express-myconnection');
-var cors = require('cors')
+const cors = require('cors')
 
 const routes = require('./routes')
 
 const app = express();
 //set el puerto de escucha
+app.use(cors());
 app.use((req, res, next) => {
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, 	X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-	Method');
-	res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, 	DELETE');
-	res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-	next();
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
+    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
+    next();
 });
 
-app.use(cors())
 app.set('port', process.env.PORT || 9000);
 
 const dbOptions = {
