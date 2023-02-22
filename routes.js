@@ -5,7 +5,7 @@ routes.get("/", (req, res) => {
   req.getConnection((err, conn) => {
     if (err) return res.send(err);
 
-    conn.query("SELECT * FROM user", (err, rows) => {
+    conn.query("SELECT * FROM USER", (err, rows) => {
       if (err) return res.send(err);
 
       res.json(rows);
@@ -18,7 +18,7 @@ routes.post("/", (req, res) => {
     if (err) return res.send(err);
     //VALIDAMOS SI EL CODIGO ESTA REPETIDO
     conn.query(
-      "SELECT codigo from user WHERE codigo = ?",
+      "SELECT codigo from USER WHERE codigo = ?",
       [req.body.codigo],
       (err, rows) => {
         if (err) return res.send(err);

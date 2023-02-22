@@ -11,11 +11,11 @@ app.use(cors())
 app.set('port', process.env.PORT || 9000);
 
 const dbOptions = {
-    host:process.env.DB_HOST || "localhost",
-    port:process.env.DB_PORT ||3306,
-    user:process.env.DB_USER ||'root',
-    password:process.env.DB_PASSWORD ||"",
-    database:process.env.DB_NAME ||'amstel'
+    host:"containers-us-west-141.railway.app",
+    port:6360,
+    user:'root',
+    password:"ZKmfreSSTTbQ968FjpI4",
+    database:'railway'
 }
 
 //middlewares-----
