@@ -24,7 +24,7 @@ app.use(express.json());
 
 //agregamos la ruta principal de nuestra api
 //router-----------------------------
-app.get("/", cors() ,(req, res) => {
+app.get("/",(req, res) => {
   res.send("welcome to my api con cors");
 });
 
